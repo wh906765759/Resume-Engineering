@@ -12,4 +12,4 @@
 
 安装使用skill/resume-engineering目录；演示初始化还需仓库examples目录及requirements-dev.txt。保留完整发布包以运行示例；不要将真实事实放入Skill安装目录。
 
-GitHub技术仓库名拟为Resume-Engineering（显示名称Resume Engineering）。发布使用全新历史和明确文件清单，不使用git add .；提交身份应确认不泄露私人邮箱。当前未创建远程仓库。
+GitHub技术仓库名为Resume-Engineering（显示名称Resume Engineering）。已按白名单推送main，使用全新历史，不使用git add .；提交使用GitHub noreply身份，不携带私人邮箱。公开的是本地原型Skill，不是生产服务。

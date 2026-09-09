@@ -42,4 +42,4 @@
 
 ## 发布范围
 
-显示名称为Resume Engineering，Skill名为resume-engineering。第五轮已生成本地候选包；素材权利与MIT许可已确认，GitHub远程发布待完成。采用全新历史，不继承参考项目的源资料、账户配置或提交记录。打包清单与验证方式见发布闸门。
+显示名称为Resume Engineering，Skill名为resume-engineering。第五轮已完成MIT许可本地包与GitHub main发布，当前仍为本地原型，不是生产服务。采用全新历史，不继承参考项目的源资料、账户配置或提交记录。打包清单与验证方式见发布闸门。

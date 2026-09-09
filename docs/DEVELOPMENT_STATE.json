@@ -1,10 +1,10 @@
 {
   "product": "Resume Engineering",
   "version": "0.5.0",
-  "completed_round": 4,
-  "status": "local_release_ready",
+  "completed_round": 5,
+  "status": "published_local_prototype",
   "next_round": 5,
-  "next_scope": "建立GitHub建库通道并发布白名单文件",
+  "next_scope": "收集使用反馈；生产能力需独立验收",
   "read_first": ["docs/RELEASE_GATE.md", "skill/resume-engineering/references/security.md"],
   "contracts": [
     "skill/resume-engineering/assets/schemas/fact.schema.json",
@@ -15,6 +15,6 @@
   "round_3_verification": {"python_tests": 24, "browser_mock": "passed", "resume_html_pages": 2, "live_model": "not_tested"},
   "round_4_verification": {"python_tests": 28, "production_ready": false},
   "not_implemented": ["live_ai_validation", "deployment", "xlsx_export", "cross_platform_e2e", "automatic_document_import"],
-  "round_5_local": {"allowlist_files": 49, "extracted_tests": 28, "isolated_generation": "passed", "public_upload": "not_started", "license": "MIT"},
-  "publication": "local_release_ready_remote_pending"
+  "round_5_local": {"allowlist_files": 49, "extracted_tests": 28, "isolated_generation": "passed", "public_upload": "main_pushed", "license": "MIT"},
+  "publication": "github_published"
 }

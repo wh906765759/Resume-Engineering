@@ -1,0 +1,4 @@
+interface:
+  display_name: "Resume Engineering"
+  short_description: "Plan fact-based career websites, assistants, and resume workflows"
+  default_prompt: "Use $resume-engineering to plan or update my career facts, website, assistant, and resume outputs within the requested scope."

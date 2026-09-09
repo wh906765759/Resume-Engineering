@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "nodes": [
+    {
+      "id": "DEMO-FACT-001",
+      "kind": "fact",
+      "version": 1,
+      "status": "ready"
+    },
+    {
+      "id": "resume-content",
+      "kind": "artifact",
+      "version": 1,
+      "status": "ready"
+    },
+    {
+      "id": "resume-pdf",
+      "kind": "artifact",
+      "version": 1,
+      "status": "ready"
+    },
+    {
+      "id": "website-css",
+      "kind": "template",
+      "version": 1,
+      "status": "ready"
+    }
+  ],
+  "edges": [
+    {
+      "from": "DEMO-FACT-001",
+      "to": "resume-content",
+      "source_version": 1
+    },
+    {
+      "from": "resume-content",
+      "to": "resume-pdf",
+      "source_version": 1
+    }
+  ]
+}

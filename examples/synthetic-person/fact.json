@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "fact_id": "DEMO-FACT-001",
+  "version": 1,
+  "category": "project",
+  "title": "虚构演示：装配参数验证",
+  "period": {
+    "start": "2024-01",
+    "end": "2024-03"
+  },
+  "background": "仅用于框架测试，无真实个人或企业对应。",
+  "role": "虚构工艺工程师",
+  "contribution_scope": "协同验证；不承担整厂项目管理。",
+  "responsibility": [
+    "记录试验条件"
+  ],
+  "technical_approach": [
+    "比较参数设置与样品表现"
+  ],
+  "method": [
+    "对照验证"
+  ],
+  "tools": [],
+  "result": "形成虚构验证记录，无量化业绩。",
+  "metrics": [],
+  "evidence": [
+    {
+      "evidence_id": "DEMO-E-001",
+      "kind": "user_confirmation",
+      "locator": "synthetic:confirmation-001",
+      "supports": [
+        "role",
+        "result"
+      ],
+      "review_status": "supports"
+    }
+  ],
+  "applicable_roles": [
+    "工艺工程师"
+  ],
+  "keywords": [
+    "参数验证"
+  ],
+  "status": "verified",
+  "confidence": "medium",
+  "privacy_level": "public_candidate",
+  "permissions": {
+    "private_storage": {
+      "decision": "allow",
+      "reason": "虚构用途授权测试",
+      "review": {
+        "review_id": "DEMO-R-001",
+        "reviewed_at": "2026-01-01T00:00:00Z",
+        "fact_version": 1,
+        "evidence_ref": "DEMO-E-001"
+      }
+    },
+    "targeted_resume": {
+      "decision": "allow",
+      "reason": "虚构用途授权测试",
+      "review": {
+        "review_id": "DEMO-R-001",
+        "reviewed_at": "2026-01-01T00:00:00Z",
+        "fact_version": 1,
+        "evidence_ref": "DEMO-E-001"
+      }
+    },
+    "public_website": {
+      "decision": "deny",
+      "reason": "虚构用途授权测试",
+      "review": null
+    },
+    "public_ai": {
+      "decision": "deny",
+      "reason": "虚构用途授权测试",
+      "review": null
+    }
+  },
+  "conflict_ids": []
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "project_id": "synthetic-person",
+  "revision": 1,
+  "active_modules": [
+    "planning"
+  ],
+  "modules": {
+    "planning": {
+      "status": "in_progress",
+      "artifacts": [],
+      "checks": [],
+      "blocker": null
+    },
+    "facts": {
+      "status": "not_started",
+      "artifacts": [],
+      "checks": [],
+      "blocker": null
+    },
+    "glossary": {
+      "status": "not_started",
+      "artifacts": [],
+      "checks": [],
+      "blocker": null
+    },
+    "media": {
+      "status": "not_started",
+      "artifacts": [],
+      "checks": [],
+      "blocker": null
+    },
+    "privacy": {
+      "status": "not_started",
+      "artifacts": [],
+      "checks": [],
+      "blocker": null
+    },
+    "website": {
+      "status": "not_started",
+      "artifacts": [],
+      "checks": [],
+      "blocker": null
+    },
+    "assistant": {
+      "status": "not_started",
+      "artifacts": [],
+      "checks": [],
+      "blocker": null
+    },
+    "resume": {
+      "status": "not_started",
+      "artifacts": [],
+      "checks": [],
+      "blocker": null
+    },
+    "release": {
+      "status": "not_started",
+      "artifacts": [],
+      "checks": [],
+      "blocker": null
+    },
+    "retrospective": {
+      "status": "not_started",
+      "artifacts": [],
+      "checks": [],
+      "blocker": null
+    }
+  },
+  "latest_change": null,
+  "unresolved": [
+    "虚构示例：网站用途尚未批准"
+  ],
+  "metrics": {
+    "read_files": 0,
+    "changed_files": 0,
+    "regenerated_outputs": 0,
+    "token_usage": null
+  }
+}

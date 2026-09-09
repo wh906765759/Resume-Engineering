@@ -1,0 +1,681 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Career Fact v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "fact_id",
+    "version",
+    "category",
+    "title",
+    "period",
+    "background",
+    "role",
+    "contribution_scope",
+    "responsibility",
+    "technical_approach",
+    "method",
+    "tools",
+    "result",
+    "metrics",
+    "evidence",
+    "applicable_roles",
+    "keywords",
+    "status",
+    "confidence",
+    "privacy_level",
+    "permissions",
+    "conflict_ids"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "fact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "category": {
+      "enum": [
+        "education",
+        "research",
+        "work",
+        "project",
+        "capability",
+        "award",
+        "publication",
+        "patent",
+        "other"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "period": {
+      "type": "object",
+      "required": [
+        "start",
+        "end"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "end": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "background": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "role": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "contribution_scope": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "responsibility": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "technical_approach": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "method": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "result": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "metrics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "value",
+          "unit",
+          "context",
+          "source_ref"
+        ],
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1
+          },
+          "context": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "evidence_id",
+          "kind",
+          "locator",
+          "supports",
+          "review_status"
+        ],
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "user_confirmation",
+              "document",
+              "public_reference",
+              "measurement"
+            ]
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "supports": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "review_status": {
+            "enum": [
+              "unreviewed",
+              "supports",
+              "contradicts"
+            ]
+          }
+        }
+      }
+    },
+    "applicable_roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "pending_review",
+        "verified",
+        "conflicted",
+        "retired"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "unknown",
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "privacy_level": {
+      "enum": [
+        "public_candidate",
+        "internal",
+        "restricted"
+      ]
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "private_storage",
+        "targeted_resume",
+        "public_website",
+        "public_ai"
+      ],
+      "properties": {
+        "private_storage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "decision",
+            "reason",
+            "review"
+          ],
+          "properties": {
+            "decision": {
+              "enum": [
+                "allow",
+                "deny",
+                "revoked"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "review": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "review_id",
+                    "reviewed_at",
+                    "fact_version",
+                    "evidence_ref"
+                  ],
+                  "properties": {
+                    "review_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "reviewed_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "fact_version": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "evidence_ref": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "decision": {
+                    "const": "allow"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "review": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "targeted_resume": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "decision",
+            "reason",
+            "review"
+          ],
+          "properties": {
+            "decision": {
+              "enum": [
+                "allow",
+                "deny",
+                "revoked"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "review": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "review_id",
+                    "reviewed_at",
+                    "fact_version",
+                    "evidence_ref"
+                  ],
+                  "properties": {
+                    "review_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "reviewed_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "fact_version": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "evidence_ref": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "decision": {
+                    "const": "allow"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "review": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "public_website": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "decision",
+            "reason",
+            "review"
+          ],
+          "properties": {
+            "decision": {
+              "enum": [
+                "allow",
+                "deny",
+                "revoked"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "review": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "review_id",
+                    "reviewed_at",
+                    "fact_version",
+                    "evidence_ref"
+                  ],
+                  "properties": {
+                    "review_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "reviewed_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "fact_version": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "evidence_ref": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "decision": {
+                    "const": "allow"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "review": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "public_ai": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "decision",
+            "reason",
+            "review"
+          ],
+          "properties": {
+            "decision": {
+              "enum": [
+                "allow",
+                "deny",
+                "revoked"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "review": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "review_id",
+                    "reviewed_at",
+                    "fact_version",
+                    "evidence_ref"
+                  ],
+                  "properties": {
+                    "review_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "reviewed_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "fact_version": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "evidence_ref": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "decision": {
+                    "const": "allow"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "review": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "conflict_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "verified"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "evidence": {
+            "minItems": 1,
+            "contains": {
+              "properties": {
+                "review_status": {
+                  "const": "supports"
+                }
+              }
+            }
+          },
+          "conflict_ids": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "privacy_level": {
+            "const": "restricted"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "permissions": {
+            "properties": {
+              "targeted_resume": {
+                "properties": {
+                  "decision": {
+                    "enum": [
+                      "deny",
+                      "revoked"
+                    ]
+                  }
+                }
+              },
+              "public_website": {
+                "properties": {
+                  "decision": {
+                    "enum": [
+                      "deny",
+                      "revoked"
+                    ]
+                  }
+                }
+              },
+              "public_ai": {
+                "properties": {
+                  "decision": {
+                    "enum": [
+                      "deny",
+                      "revoked"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "privacy_level": {
+            "const": "internal"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "permissions": {
+            "properties": {
+              "public_website": {
+                "properties": {
+                  "decision": {
+                    "enum": [
+                      "deny",
+                      "revoked"
+                    ]
+                  }
+                }
+              },
+              "public_ai": {
+                "properties": {
+                  "decision": {
+                    "enum": [
+                      "deny",
+                      "revoked"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

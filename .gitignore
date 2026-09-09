@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+private/
+workspaces/
+exports/
+output/
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+# Ignore rules are convenience only, not a substitute for publication review.

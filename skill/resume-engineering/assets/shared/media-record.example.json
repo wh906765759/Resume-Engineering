@@ -1,0 +1,13 @@
+{
+  "asset_id": "SYN-MEDIA-001",
+  "version": 1,
+  "kind": "virtual",
+  "source_asset_id": null,
+  "private_locator": null,
+  "rights_holder": "Resume Engineering project contributors",
+  "consent_record": "Original geometric placeholder; contains no real-person likeness",
+  "allowed_uses": ["template_demo"],
+  "metadata_review": "SVG inspected: no external URLs or embedded personal metadata",
+  "transformation_record": "Original vector geometry, not a generated portrait photograph",
+  "asset_relative_path": "portrait-placeholder.svg"
+}

@@ -1,0 +1,899 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Project state v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "project_id",
+    "revision",
+    "active_modules",
+    "modules",
+    "latest_change",
+    "unresolved",
+    "metrics"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "active_modules": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "planning",
+          "facts",
+          "glossary",
+          "media",
+          "privacy",
+          "website",
+          "assistant",
+          "resume",
+          "release",
+          "retrospective"
+        ]
+      }
+    },
+    "modules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "planning",
+        "facts",
+        "glossary",
+        "media",
+        "privacy",
+        "website",
+        "assistant",
+        "resume",
+        "release",
+        "retrospective"
+      ],
+      "properties": {
+        "planning": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifacts",
+            "checks",
+            "blocker"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "not_started",
+                "in_progress",
+                "blocked",
+                "ready",
+                "stale"
+              ]
+            },
+            "artifacts": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "checks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "blocker": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "blocked"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "blocker": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "ready"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "artifacts": {
+                    "minItems": 1
+                  },
+                  "checks": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "facts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifacts",
+            "checks",
+            "blocker"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "not_started",
+                "in_progress",
+                "blocked",
+                "ready",
+                "stale"
+              ]
+            },
+            "artifacts": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "checks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "blocker": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "blocked"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "blocker": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "ready"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "artifacts": {
+                    "minItems": 1
+                  },
+                  "checks": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "glossary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifacts",
+            "checks",
+            "blocker"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "not_started",
+                "in_progress",
+                "blocked",
+                "ready",
+                "stale"
+              ]
+            },
+            "artifacts": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "checks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "blocker": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "blocked"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "blocker": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "ready"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "artifacts": {
+                    "minItems": 1
+                  },
+                  "checks": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "media": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifacts",
+            "checks",
+            "blocker"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "not_started",
+                "in_progress",
+                "blocked",
+                "ready",
+                "stale"
+              ]
+            },
+            "artifacts": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "checks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "blocker": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "blocked"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "blocker": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "ready"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "artifacts": {
+                    "minItems": 1
+                  },
+                  "checks": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "privacy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifacts",
+            "checks",
+            "blocker"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "not_started",
+                "in_progress",
+                "blocked",
+                "ready",
+                "stale"
+              ]
+            },
+            "artifacts": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "checks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "blocker": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "blocked"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "blocker": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "ready"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "artifacts": {
+                    "minItems": 1
+                  },
+                  "checks": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "website": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifacts",
+            "checks",
+            "blocker"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "not_started",
+                "in_progress",
+                "blocked",
+                "ready",
+                "stale"
+              ]
+            },
+            "artifacts": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "checks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "blocker": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "blocked"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "blocker": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "ready"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "artifacts": {
+                    "minItems": 1
+                  },
+                  "checks": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "assistant": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifacts",
+            "checks",
+            "blocker"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "not_started",
+                "in_progress",
+                "blocked",
+                "ready",
+                "stale"
+              ]
+            },
+            "artifacts": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "checks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "blocker": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "blocked"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "blocker": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "ready"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "artifacts": {
+                    "minItems": 1
+                  },
+                  "checks": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "resume": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifacts",
+            "checks",
+            "blocker"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "not_started",
+                "in_progress",
+                "blocked",
+                "ready",
+                "stale"
+              ]
+            },
+            "artifacts": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "checks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "blocker": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "blocked"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "blocker": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "ready"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "artifacts": {
+                    "minItems": 1
+                  },
+                  "checks": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "release": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifacts",
+            "checks",
+            "blocker"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "not_started",
+                "in_progress",
+                "blocked",
+                "ready",
+                "stale"
+              ]
+            },
+            "artifacts": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "checks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "blocker": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "blocked"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "blocker": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "ready"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "artifacts": {
+                    "minItems": 1
+                  },
+                  "checks": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "retrospective": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "artifacts",
+            "checks",
+            "blocker"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "not_started",
+                "in_progress",
+                "blocked",
+                "ready",
+                "stale"
+              ]
+            },
+            "artifacts": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "checks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "blocker": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "blocked"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "blocker": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "ready"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "artifacts": {
+                    "minItems": 1
+                  },
+                  "checks": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "latest_change": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "unresolved": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "read_files",
+        "changed_files",
+        "regenerated_outputs",
+        "token_usage"
+      ],
+      "properties": {
+        "read_files": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "changed_files": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "regenerated_outputs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "token_usage": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      }
+    }
+  }
+}
